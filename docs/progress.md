@@ -9,8 +9,8 @@ Ký hiệu: ✅ xong · ⏳ đang làm · ⬜ chưa bắt đầu · ❌ lỗi / 
 | ⬜ | Chốt đề tài, phân công, tài khoản AWS dùng chung | Cả nhóm | |
 | ⏳ | Tạo repo GitHub, mời thành viên, bảo vệ `main` | Baro | Repo đã có trên GitHub (1 commit); chưa mời, chưa bảo vệ `main` |
 | ✅ | Game 2D bấm Space chạy local (Host + Client) | Baro | PR #1 đã merge (03/11) |
-| ⏳ | Build được bản Linux Dedicated Server | Baro | Build + zip + chạy thật trên Ubuntu 24.04 (Docker) OK; chờ PR #2 merge |
-| ⬜ | Chốt hợp đồng API (Project Doc mục 6) | Cả nhóm | Baro soạn bản nháp `docs/api-contract.md` |
+| ✅ | Build được bản Linux Dedicated Server | Baro | PR #2 đã merge (03/11); chạy trên Ubuntu 24.04, không chạy trên Amazon Linux 2023 |
+| ⏳ | Chốt hợp đồng API (Project Doc mục 6) | Cả nhóm | Bản nháp `docs/api-contract.md` xong (03/11), chờ họp nhóm chốt 8 câu hỏi mở |
 
 ### Mảng Unity: chi tiết
 
@@ -39,9 +39,11 @@ Ký hiệu: ✅ xong · ⏳ đang làm · ⬜ chưa bắt đầu · ❌ lỗi / 
 - ✅ Smoke test server Linux bằng Docker (03/11): ❌ Amazon Linux 2023 lỗi `GLIBC_2.35 not found`; ✅ Ubuntu 24.04 nghe UDP 7777, 2 `Client.exe` chơi trọn trận, CPU ~1%, RAM ~105 MB. AMI chờ nhóm chốt (`decisions.md`)
 - ✅ `BuildScript.cs`: build Linux Server + Windows Client OK, build lỗi không mất bản cũ, chạy đang mở thì từ chối (03/11)
 - ✅ `docs/server-runbook.md`: lệnh chạy, tham số, log, mã thoát, systemd mẫu, yêu cầu Ubuntu ≥ 22.04 (03/11)
+- ✅ PR #2 đã merge `ea528d4` (03/11)
 
 **Bước 4: bản nháp API contract**
-- ⬜ `docs/api-contract.md` để nhóm chốt trong buổi họp tuần
+- ✅ `docs/api-contract.md` bản nháp: quy ước chung, format lỗi, 6 endpoint kèm JSON mẫu, timeout/retry, cấu hình, 8 câu hỏi mở (03/11)
+- ⬜ Họp nhóm chốt các câu hỏi mở, ghi kết quả vào `decisions.md` và sửa Project Doc mục 6 / 7.2
 
 ## Tuần 3 (09–15/11): 1 server trên 1 EC2, làm tay
 - ⬜ Client nhập IP public:port; test 2 client từ 2 mạng khác nhau
