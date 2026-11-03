@@ -56,6 +56,8 @@ unity/crashlytics-build.properties
 .vs/
 .vscode/
 .idea/
+# AI/IDE extensions drop personal instruction files here (e.g. VS Code Azure extension); CI workflows belong in the root .github/
+unity/.github/
 .gradle/
 .consulo/
 *.user
