@@ -28,3 +28,4 @@ Ghi mọi quyết định của nhóm theo thứ tự mới nhất ở trên. Đ
 | 1 hay nhiều process server trên 1 EC2 | Code hỗ trợ `-port`; Security Group hiện chỉ mở UDP 7777 |
 | Game server gọi API qua HTTP hay ghi thẳng DynamoDB | Qua HTTP (giữ Unity đơn giản, không chứa AWS SDK/key) |
 | Client chờ ghép trận tối đa bao lâu | 60 giây rồi báo "không tìm được trận" |
+| AMI cho game server (Project Doc mục 7.2 ghi Amazon Linux) | Đề xuất Ubuntu Server 24.04 LTS x86_64. Smoke test 03/11 bằng Docker: Amazon Linux 2023 lỗi `GLIBC_2.35 not found` (chỉ có 2.34); Ubuntu 24.04 chạy trọn trận với 2 client. Cần nhóm chốt và sửa Project Doc mục 7.2 |
