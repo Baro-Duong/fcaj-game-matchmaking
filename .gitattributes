@@ -1,0 +1,29 @@
+# Git tự chuẩn hoá xuống dòng: trong repo lưu LF, máy Windows checkout ra CRLF.
+# Tránh "thay đổi giả" khi người dùng Windows, macOS, Linux cùng sửa một file.
+* text=auto
+
+# Script chạy trên Linux (User Data, build) luôn giữ LF, nếu không bash báo lỗi "\r"
+*.sh   text eol=lf
+# Script PowerShell giữ CRLF cho Windows
+*.ps1  text eol=crlf
+
+# Code C# hiển thị diff theo hàm
+*.cs   text diff=csharp
+
+# File nhị phân: không đổi xuống dòng, không diff
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.tga  binary
+*.psd  binary
+*.wav  binary
+*.mp3  binary
+*.ogg  binary
+*.ttf  binary
+*.otf  binary
+*.fbx  binary
+*.pdf  binary
+*.dll  binary
+*.so   binary
+*.exe  binary
