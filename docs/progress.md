@@ -8,8 +8,8 @@ Ký hiệu: ✅ xong · ⏳ đang làm · ⬜ chưa bắt đầu · ❌ lỗi / 
 |---|---|---|---|
 | ⬜ | Chốt đề tài, phân công, tài khoản AWS dùng chung | Cả nhóm | |
 | ⏳ | Tạo repo GitHub, mời thành viên, bảo vệ `main` | Baro | Repo đã có trên GitHub (1 commit); chưa mời, chưa bảo vệ `main` |
-| ⬜ | Game 2D bấm Space chạy local (Host + Client) | Baro | |
-| ⬜ | Build được bản Linux Dedicated Server | Baro | |
+| ✅ | Game 2D bấm Space chạy local (Host + Client) | Baro | PR #1 đã merge (03/11) |
+| ⏳ | Build được bản Linux Dedicated Server | Baro | Build + zip + chạy thật trên Ubuntu 24.04 (Docker) OK; chờ PR #2 merge |
 | ⬜ | Chốt hợp đồng API (Project Doc mục 6) | Cả nhóm | Baro soạn bản nháp `docs/api-contract.md` |
 
 ### Mảng Unity: chi tiết
@@ -23,21 +23,22 @@ Ký hiệu: ✅ xong · ⏳ đang làm · ⬜ chưa bắt đầu · ❌ lỗi / 
 - ✅ 1.6 `git status`: 60 file, không có Library/Temp/Logs/UserSettings/.sln/file bí mật, asset nào cũng có .meta (03/11)
 - ✅ 1.7 Commit đầu `349ead4` đã push lên `main`; xoá nhánh `switch-2d` (03/11)
 - ⏳ 1.8 Mời thành viên + bảo vệ `main`
-- ⬜ 1.9 Từ đây làm trên nhánh `feature/*` + PR
+- ✅ 1.9 Từ đây làm trên nhánh `feature/*` + PR (PR #1 là PR đầu tiên)
 
 **Bước 2: game 2D bấm Space chạy local** (`feature/space-game-local`)
 - ✅ Script: GameConfig, CommandLineArgs, NetworkBootstrap, MatchManager, PlayerPresser, PressRateLimiter, ConnectionPanel, MatchHud; compile sạch (03/11)
 - ✅ Scene `Main.unity` + prefab Player dựng bằng Editor script `MM/Setup/Build Main Scene`; đã kiểm tra YAML: PlayerPrefab, prefab list, approval, tick 30, port 7777, mọi tham chiếu UI (03/11)
 - ✅ Test Multiplayer Play Mode: Host + Client, người thứ 3 bị từ chối (`full`), thoát giữa trận (`OpponentLeft`), chế độ Server, giới hạn tốc độ bấm (max 3 → P2 bị bỏ 48 lần bấm) (03/11)
 - ✅ Build Windows Client (`SpaceDuel.exe`): 2 client .exe chơi với Server trong Editor (03/11)
-- ⏳ PR vào `main` có mục How to test
+- ✅ PR #1 vào `main` có mục How to test, đã merge `f3e52f4` (03/11)
 
 **Bước 3: build Linux Dedicated Server** (`feature/linux-server-build`)
-- ⬜ Cài 2 module Linux trong Unity Hub
-- ⬜ `BuildScript.cs` (menu MM/Build + `-executeMethod`), `build-info.txt`
-- ⬜ `tools/build-server.ps1` + zip `server-<version>.zip`
-- ⬜ Smoke test chạy server trên Linux (dòng `[MM] Server listening`, UDP 7777 mở)
-- ⬜ `docs/server-runbook.md`
+- ✅ 2 module Linux (Mono + Dedicated Server) đã có sẵn trong 6000.3.10f1 (03/11)
+- ✅ `tools/build-server.ps1` + zip `server-1.0.zip` (31 MB, đường dẫn `/`, không có `_DoNotShip`); server giải nén từ zip chạy được trên Ubuntu 24.04 (03/11)
+- ✅ Sửa lỗi build batch mode để Editor kẹt ở Linux Server: giờ luôn chuyển về Windows Player sau khi build (03/11)
+- ✅ Smoke test server Linux bằng Docker (03/11): ❌ Amazon Linux 2023 lỗi `GLIBC_2.35 not found`; ✅ Ubuntu 24.04 nghe UDP 7777, 2 `Client.exe` chơi trọn trận, CPU ~1%, RAM ~105 MB. AMI chờ nhóm chốt (`decisions.md`)
+- ✅ `BuildScript.cs`: build Linux Server + Windows Client OK, build lỗi không mất bản cũ, chạy đang mở thì từ chối (03/11)
+- ✅ `docs/server-runbook.md`: lệnh chạy, tham số, log, mã thoát, systemd mẫu, yêu cầu Ubuntu ≥ 22.04 (03/11)
 
 **Bước 4: bản nháp API contract**
 - ⬜ `docs/api-contract.md` để nhóm chốt trong buổi họp tuần
