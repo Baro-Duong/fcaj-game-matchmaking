@@ -21,16 +21,16 @@ Ký hiệu: ✅ xong · ⏳ đang làm · ⬜ chưa bắt đầu · ❌ lỗi / 
 - ✅ 1.4 Netcode for GameObjects 2.13.3 (kéo theo Unity Transport 2.6.0) + Multiplayer Play Mode 2.0.2 (03/11)
 - ✅ 1.5 Kiểm tra bằng file: ProjectVersion, manifest, packages-lock, Force Text, Visible Meta Files, Input System, Run In Background; Editor.log không có lỗi (03/11)
 - ✅ 1.6 `git status`: 60 file, không có Library/Temp/Logs/UserSettings/.sln/file bí mật, asset nào cũng có .meta (03/11)
-- ⏳ 1.7 Commit đầu + push `main`
-- ⬜ 1.8 Mời thành viên + bảo vệ `main`
+- ✅ 1.7 Commit đầu `349ead4` đã push lên `main`; xoá nhánh `switch-2d` (03/11)
+- ⏳ 1.8 Mời thành viên + bảo vệ `main`
 - ⬜ 1.9 Từ đây làm trên nhánh `feature/*` + PR
 
 **Bước 2: game 2D bấm Space chạy local** (`feature/space-game-local`)
-- ⬜ Script: GameConfig, CommandLineArgs, NetworkBootstrap, MatchManager, PlayerPresser, ConnectionPanel, MatchHud
-- ⬜ Scene `Main.unity` + prefab Player (wire trong Editor)
-- ⬜ Test Multiplayer Play Mode: Host + Client, người thứ 3 bị từ chối, giới hạn tốc độ bấm, thoát giữa trận
-- ⬜ Build Windows Client chơi được với Host trong Editor
-- ⬜ PR vào `main` có mục How to test
+- ✅ Script: GameConfig, CommandLineArgs, NetworkBootstrap, MatchManager, PlayerPresser, PressRateLimiter, ConnectionPanel, MatchHud; compile sạch (03/11)
+- ✅ Scene `Main.unity` + prefab Player dựng bằng Editor script `MM/Setup/Build Main Scene`; đã kiểm tra YAML: PlayerPrefab, prefab list, approval, tick 30, port 7777, mọi tham chiếu UI (03/11)
+- ✅ Test Multiplayer Play Mode: Host + Client, người thứ 3 bị từ chối (`full`), thoát giữa trận (`OpponentLeft`), chế độ Server, giới hạn tốc độ bấm (max 3 → P2 bị bỏ 48 lần bấm) (03/11)
+- ✅ Build Windows Client (`SpaceDuel.exe`): 2 client .exe chơi với Server trong Editor (03/11)
+- ⏳ PR vào `main` có mục How to test
 
 **Bước 3: build Linux Dedicated Server** (`feature/linux-server-build`)
 - ⬜ Cài 2 module Linux trong Unity Hub
